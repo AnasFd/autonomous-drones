@@ -1,21 +1,14 @@
 extends Node3D
 
-var speed = 5.0
-var direction = Vector3.ZERO
-
-func _ready():
-	randomize()
-	# Le drone va choisir une direction au hasard
-	direction = Vector3(randf(), randf(), randf()).normalized()
+var speed: float = 2.0
+var angle: float = 0.0  # Angle pour le mouvement circulaire
+var radius: float = 5.0  # Rayon du cercle
 
 func _process(delta):
-	# Déplacement du drone dans une direction choisie
-	position += direction * speed * delta
-	
-	# Faire tourner le drone légèrement
-	rotate_y(0.01)
+	move_in_circle(delta)
 
-	# Si le drone sort de la zone, choisir une nouvelle direction
-	if position.length() > 10.0:
-		direction = Vector3(randf(), randf(), randf()).normalized()
-		position = Vector3.ZERO
+func move_in_circle(delta):
+	# Calculer la nouvelle position en fonction de l'angle
+	angle += speed * delta  # Ajuster l'angle en fonction de la vitesse
+	position.x = radius * cos(angle)  # Calculer la position x
+	position.z = radius * sin(angle)  # Calculer la position z

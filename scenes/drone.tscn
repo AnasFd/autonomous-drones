@@ -1139,7 +1139,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422262, 0)
 script = ExtResource("1_u360a")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.929777, -0.0555861, -0.363902, -0.258908, 0.801467, 0.53909, 0.26169, 0.59545, -0.759577, -1.75775, 2.44044, -3.06606)
+transform = Transform3D(-0.929777, -0.0555863, -0.363903, -0.258908, 0.801467, 0.539089, 0.26169, 0.59545, -0.759577, -1.75775, 4.70995, -6.56816)
 current = true
 
 [node name="Drone" type="Node3D" parent="."]
