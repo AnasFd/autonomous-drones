@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6f8lfek7prqs"]
+
+[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_362rs"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_74c02"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kl0in"]
+albedo_color = Color(0, 0.415966, 0.415966, 1)
+
+[node name="Traffic" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.231918, 0.972735, 0, -0.972735, 0.231918, 0, 13.0697, 0)
+
+[node name="Sol" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.806706, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sol"]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 0, 0)
+shape = SubResource("HeightMapShape3D_362rs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sol"]
+transform = Transform3D(50, 0, 0, 0, -2.18557e-06, 50, 0, -50, -2.18557e-06, 0, 0, 0)
+mesh = SubResource("QuadMesh_74c02")
+surface_material_override/0 = SubResource("StandardMaterial3D_kl0in")
