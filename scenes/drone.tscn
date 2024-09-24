@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmgmt4ccuyqqp"]
+
+[ext_resource type="Script" path="res://scenes/drone.gd" id="1_jnf0n"]
+[ext_resource type="Script" path="res://scenes/fistival.gd" id="1_u360a"]
+[ext_resource type="PackedScene" uid="uid://8v7huegk643e" path="res://model_drone_1.tscn" id="3_2s7kk"]
+[ext_resource type="PackedScene" uid="uid://ofuxrj6tv8hf" path="res://model_drone_2.tscn" id="4_4bn6s"]
+
+[node name="FestivalScene" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422262, 0)
+script = ExtResource("1_u360a")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.929777, -0.0555863, -0.363903, -0.258908, 0.801467, 0.539089, 0.26169, 0.59545, -0.759577, -1.75775, 4.70995, -6.56816)
+current = true
+
+[node name="Drone" type="Node3D" parent="."]
+script = ExtResource("1_jnf0n")
+
+[node name="MODEL_DRONE1" parent="Drone" instance=ExtResource("3_2s7kk")]
+
+[node name="MODEL_DRONE2" parent="Drone" instance=ExtResource("4_4bn6s")]
+
+[node name="Area3D" type="Area3D" parent="Drone"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Drone/Area3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0187612, 0.999824, 0, -0.999824, -0.0187612, 0, 6.23928, 0)
