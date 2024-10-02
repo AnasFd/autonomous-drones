@@ -43,4 +43,21 @@ script = ExtResource("3_vci7e")
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 3.80818, -0.0994459, -21.8577)
 script = ExtResource("3_vci7e")
 
+[node name="Drone7" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13.9291, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone8" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 7.05808, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone9" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.6619, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone10" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
 [node name="Floor" parent="." instance=ExtResource("3_pad2v")]
+visible = false
