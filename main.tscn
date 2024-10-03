@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1w461xtqpakn"]
+[gd_scene load_steps=6 format=3 uid="uid://d1w461xtqpakn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2vu3p"]
 [ext_resource type="PackedScene" uid="uid://j34sjb6r5fms" path="res://model_drone_1.tscn" id="2_jjokr"]
+[ext_resource type="Script" path="res://camera_3d.gd" id="2_vulxn"]
 [ext_resource type="PackedScene" uid="uid://c1pl6dobl0gw2" path="res://scenes/floor.tscn" id="3_pad2v"]
 [ext_resource type="Script" path="res://scripts/drone.gd" id="3_vci7e"]
 
@@ -12,6 +13,7 @@ script = ExtResource("1_2vu3p")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.997053, 0.0277255, 0.0715275, -0.0245938, 0.998716, -0.0442976, -0.0726638, 0.042408, 0.996454, -2.4433, 7.45848, 24.0994)
 fov = 87.2099
+script = ExtResource("2_vulxn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0187612, 0.999824, 0, -0.999824, -0.0187612, 0, 10.1622, 0)
