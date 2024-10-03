@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmgmt4ccuyqqp"]
 
-[ext_resource type="PackedScene" uid="uid://j34sjb6r5fms" path="res://model_drone_1.tscn" id="3_2s7kk"]
-[ext_resource type="PackedScene" uid="uid://cbphjpsdihjmh" path="res://model_drone_2.tscn" id="4_4bn6s"]
+[ext_resource type="PackedScene" uid="uid://j34sjb6r5fms" path="res://scenes/model_drone_1.tscn" id="3_2s7kk"]
+[ext_resource type="PackedScene" uid="uid://cbphjpsdihjmh" path="res://scenes/model_drone_2.tscn" id="4_4bn6s"]
 
 [node name="FestivalScene" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422262, 0)
