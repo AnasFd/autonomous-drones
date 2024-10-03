@@ -2,7 +2,7 @@ extends Node3D
 
 @export var circle_center: Vector3  # Center of the circle
 @export var circle_radius: float = 5.0  # Desired radius of the circle
-@export var min_distance: float = 10.0  # Minimum distance between drones to avoid collisions
+@export var min_distance: float = 7  # Minimum distance between drones to avoid collisions
 @export var speed: float = 5.0  # Movement speed
 @export var repulsion_strength: float = 5.0  # Strength of repulsion between drones
 
@@ -11,9 +11,9 @@ var target_position: Vector3
 var current_radius: float  # Dynamic radius that drones move towards
 
 func _ready():
-	# Start with a larger radius and random initial positions
+	# Start with a larger radius and random initial positions in space
 	current_radius = initial_radius
-	global_transform.origin = random_position_around_circle(initial_radius)
+	global_transform.origin = random_position_in_space()
 
 func _process(delta):
 	# Gradually reduce the radius until it reaches the desired circle radius
@@ -24,10 +24,12 @@ func _process(delta):
 	var steering = calculate_steering(delta)
 	move(steering * delta)
 
-# Calculate a random position around a larger starting radius
-func random_position_around_circle(radius: float) -> Vector3:
-	var angle = randf() * PI * 2  # Random angle between 0 and 2π
-	return circle_center + Vector3(cos(angle), 0, sin(angle)) * radius
+# Randomize the position of drones in 3D space within a certain range (instead of around a circle)
+func random_position_in_space() -> Vector3:
+	var x = randf_range(-initial_radius -50, initial_radius + 50)
+	var y = randf_range(-initial_radius, initial_radius)
+	var z = randf_range(-initial_radius, initial_radius)
+	return Vector3(x, y, z)  # Random position in 3D space
 
 # Calculate the steering force to move towards the center and avoid other drones
 func calculate_steering(delta: float) -> Vector3:

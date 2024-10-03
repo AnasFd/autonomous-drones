@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1w461xtqpakn"]
+[gd_scene load_steps=6 format=3 uid="uid://b2oat2no5w7mu"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2vu3p"]
-[ext_resource type="PackedScene" uid="uid://j34sjb6r5fms" path="res://scenes/model_drone_1.tscn" id="2_jjokr"]
+[ext_resource type="PackedScene" path="res://scenes/model_drone_1.tscn" id="2_jjokr"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_vulxn"]
-[ext_resource type="PackedScene" uid="uid://c1pl6dobl0gw2" path="res://scenes/floor.tscn" id="3_pad2v"]
+[ext_resource type="PackedScene" path="res://scenes/floor.tscn" id="3_pad2v"]
 [ext_resource type="Script" path="res://scripts/drone.gd" id="3_vci7e"]
 
 [node name="Main" type="Node3D"]
@@ -58,6 +58,286 @@ transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-
 script = ExtResource("3_vci7e")
 
 [node name="Drone10" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone11" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -14.5965, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone12" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -10.9927, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone13" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone14" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -6.87105, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone15" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -3.26725, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone16" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 3.80818, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone17" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13.9291, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone18" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 7.05808, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone19" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.6619, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone20" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone21" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -14.5965, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone22" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -10.9927, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone23" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone24" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -6.87105, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone25" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -3.26725, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone26" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 3.80818, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone27" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13.9291, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone28" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 7.05808, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone29" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.6619, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone30" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone31" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -14.5965, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone32" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -10.9927, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone33" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone34" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -6.87105, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone35" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -3.26725, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone36" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 3.80818, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone37" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13.9291, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone38" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 7.05808, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone39" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.6619, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone40" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone41" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -14.5965, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone42" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -10.9927, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone43" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone44" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -6.87105, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone45" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -3.26725, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone46" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 3.80818, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone47" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13.9291, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone48" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 7.05808, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone49" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.6619, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone50" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone51" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -14.5965, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone52" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -10.9927, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone53" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone54" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -6.87105, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone55" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -3.26725, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone56" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 3.80818, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone57" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13.9291, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone58" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 7.05808, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone59" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.6619, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone60" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone61" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -14.5965, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone62" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -10.9927, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone63" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone64" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -6.87105, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone65" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -3.26725, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone66" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 3.80818, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone67" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13.9291, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone68" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 7.05808, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone69" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.6619, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone70" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone71" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -14.5965, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone72" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -10.9927, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone73" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone74" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -6.87105, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone75" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, -3.26725, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone76" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 3.80818, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone77" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 13.9291, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone78" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 7.05808, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone79" parent="Drones" instance=ExtResource("2_jjokr")]
+transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 10.6619, -0.0994459, -21.8577)
+script = ExtResource("3_vci7e")
+
+[node name="Drone80" parent="Drones" instance=ExtResource("2_jjokr")]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 17.7373, -0.0994459, -21.8577)
 script = ExtResource("3_vci7e")
 
