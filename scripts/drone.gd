@@ -1,10 +1,10 @@
 extends Node3D
 
 @export var circle_center: Vector3  # Center of the circle
-@export var circle_radius: float = 5.0  # Desired radius of the circle
-@export var min_distance: float = 7  # Minimum distance between drones to avoid collisions
+@export var circle_radius: float = 60.0  # Desired radius of the circle
+@export var base_min_distance: float = 15
 @export var speed: float = 5.0  # Movement speed
-@export var repulsion_strength: float = 5.0  # Strength of repulsion between drones
+@export var repulsion_strength: float = 15.0  # Strength of repulsion between drones
 
 var initial_radius: float = 30.0  # Larger starting radius to spread out drones
 var target_position: Vector3
@@ -52,6 +52,7 @@ func calculate_avoidance_force() -> Vector3:
 	for drone in drones:
 		if drone != self:  # Avoid self-comparison
 			var distance_to_drone = global_transform.origin.distance_to(drone.global_transform.origin)
+			var min_distance = base_min_distance + (circle_radius / drones.size())
 
 			# If the drone is too close, calculate a repulsion force
 			if distance_to_drone < min_distance:
