@@ -1,53 +1,37 @@
 extends Node3D
 
-const drone: Resource = preload("res://scenes/drone.tscn")  # Chemin vers la scène du drone
-@onready var light = $DirectionalLight3D  # Référence à la lumière directionnelle
-@onready var camera = $Camera3D  # Référence à la caméra
-@onready var drones = $Drones  # Référence au nœud contenant les drones
+const drone: Resource = preload("res://scenes/drone.tscn")
+@onready var light = $DirectionalLight3D  # Reference to the directional light
+@onready var camera = $Camera3D  # Reference to the camera
+@onready var drones = $Drones  # Reference to the node containing the drones
 
-var time_since_last_add: float = 0.0  # Timer pour l'ajout de drones
-var add_interval: float = 1.0  # Intervalle d'ajout en secondes
-var circle_radius: float = 20.0  # Rayon du cercle
-var max_num_drones: int = 10  # Nombre maximum de drones à instancier
-var drones_ready: int = 0  # Compteur des drones prêts
-var all_drones_ready: bool = false  # Indicateur si tous les drones sont prêts
+@export var num_drones: int = 100  # Number of drones to create
+@export var area_size: float = 100.0  # Size of the area to randomly place drones in
 
 func _ready():
-	# Initialiser les propriétés de la lumière
-	if light:  # Vérifier si le nœud existe
+	# Initialize light properties
+	if light:  # Check if the node exists
 		light.rotation_degrees = Vector3(-90, 0, 0)
 		light.position = Vector3(0, 10, 0)
 	else:
 		print("DirectionalLight3D not found!")
 
-	# Vérifier si le nœud drones est valide
-	if drones:
-		print("Drones node found.")
-	else:
-		print("Drones node not found!")
+	# Create drones dynamically and add them to the scene
+	spawn_drones(num_drones)
 
-func _process(delta):
-	time_since_last_add += delta
-	if time_since_last_add >= add_interval:  # Ajouter un drone à chaque intervalle
-		if randf() < 0.1 and drones and drones.get_child_count() < max_num_drones:  # Vérifier si drones n'est nul
-			var d: Node3D = drone.instantiate()
-			drones.add_child(d)  # Ajouter le drone à la scène
+	# Print the number of drones in the Drones node
+	print("Number of drones in the scene: ", drones.get_child_count())
 
-			# Initialiser la position au sol (aléatoire)
-			d.position = Vector3(randf_range(-10, 10), 0, randf_range(-10, 10))
-			d.circle_center = Vector3(0, 0, 0)  # Définir le centre du cercle
-			d.circle_radius = circle_radius  # Définir le rayon du cercle
-		
-		time_since_last_add = 0.0  # Réinitialiser le timer
+func spawn_drones(count: int):
+	for i in range(count):
+		var new_drone = drone.instantiate()  # Create a new instance of the drone scene
+		drones.add_child(new_drone)  # Add the drone to the Drones node
+		var random_position = Vector3(
+			randf_range(-area_size, area_size),
+			randf_range(0, area_size / 2),  # Keep drones above ground level
+			randf_range(-area_size, area_size)
+		)
+		new_drone.global_transform.origin = random_position  # Set random position in the 3D space
 
-func notify_drone_ready():
-	drones_ready += 1
-	print("Drone ready: ", drones_ready, "/", max_num_drones)
-
-	# Vérifier si tous les drones sont prêts
-	if drones_ready == max_num_drones:
-		print("All drones are ready. Starting.")
-		all_drones_ready = true  # Indiquer que tous les drones sont prêts
-
-func are_all_drones_ready() -> bool:
-	return all_drones_ready  # Renvoie si tous les drones sont prêts
+	# Optionally, you can print the count here too after each spawn if needed:
+	print("Drones after spawning: ", drones.get_child_count())

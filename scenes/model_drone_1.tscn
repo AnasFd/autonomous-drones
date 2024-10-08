@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=4 uid="uid://j34sjb6r5fms"]
+[gd_scene load_steps=50 format=4 uid="uid://d1drnypk1wr8e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xs6g7"]
 resource_name = "material_0"
@@ -770,7 +770,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b6stg")
 
-[node name="MODEL_DRONE1" type="Node3D"]
+[node name="ModelDrone" type="Node3D"]
 transform = Transform3D(1, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 0, 0, 0)
 
 [node name="Node2" type="Node3D" parent="."]
