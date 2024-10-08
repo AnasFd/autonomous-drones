@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var circle_center: Vector3  # Center of the circle
-@export var circle_radius: float = 30.0  # Desired radius of the circle
+@export var circle_radius: float = 20.0  # Desired radius of the circle
 @export var base_min_distance: float = 15
 @export var speed: float = 1.0  # Movement speed
 @export var repulsion_strength: float = 15.0  # Strength of repulsion between drones
@@ -53,3 +53,6 @@ func move(steering: Vector3):
 	new_position = circle_center + to_center
 
 	global_transform.origin = new_position  # Apply the new position
+	
+	# Make the drone face the center of the circle
+	look_at(circle_center, Vector3.UP)
