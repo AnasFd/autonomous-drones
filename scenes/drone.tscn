@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://c33ac6ijvuuvm"]
+[gd_scene load_steps=3 format=3 uid="uid://dmgmt4ccuyqqp"]
 
 [ext_resource type="Script" path="res://scripts/drone.gd" id="1_6hl57"]
-[ext_resource type="PackedScene" uid="uid://d1drnypk1wr8e" path="res://scenes/model_drone_1.tscn" id="1_se17h"]
+[ext_resource type="PackedScene" uid="uid://j34sjb6r5fms" path="res://scenes/model_drone_1.tscn" id="1_se17h"]
 
 [node name="Drone" type="Node3D"]
 script = ExtResource("1_6hl57")
