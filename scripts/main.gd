@@ -5,7 +5,7 @@ const drone: Resource = preload("res://scenes/drone.tscn")
 @onready var camera = $Camera3D  # Reference to the camera
 @onready var drones = $Drones  # Reference to the node containing the drones
 
-@export var num_drones: int = 100  # Number of drones to create
+@export var num_drones: int = 50  # Number of drones to create
 @export var area_size: float = 50  # Size of the area to randomly place drones in
 
 func _ready():
