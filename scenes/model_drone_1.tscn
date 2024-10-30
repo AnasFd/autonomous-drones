@@ -1,4 +1,6 @@
-[gd_scene load_steps=50 format=4 uid="uid://d1drnypk1wr8e"]
+[gd_scene load_steps=51 format=4 uid="uid://d1drnypk1wr8e"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_73kba"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xs6g7"]
 resource_name = "material_0"
@@ -7,7 +9,12 @@ alpha_scissor_threshold = 0.05
 alpha_antialiasing_mode = 0
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.0431373, 0.203922, 0.470588, 1)
+albedo_color = Color(0.721569, 0.164706, 0.0941176, 1)
+emission_enabled = true
+emission = Color(0, 0.756863, 0, 1)
+emission_energy_multiplier = 4.54
+backlight = Color(0.901662, 0.00014805, 0.753818, 1)
+backlight_texture = SubResource("CanvasTexture_73kba")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_s1v2r"]
 resource_name = "blockbench_export_mesh23"
@@ -64,7 +71,7 @@ alpha_scissor_threshold = 0.05
 alpha_antialiasing_mode = 0
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0.0980392, 0.92549, 1)
+albedo_color = Color(0.151573, 0.426486, 0.234485, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6ch5q"]
 _surfaces = [{
@@ -785,7 +792,6 @@ skeleton = NodePath("")
 
 [node name="body_glow" type="MeshInstance3D" parent="Node2/root"]
 transform = Transform3D(1, -2.64698e-23, 0, 2.24476e-23, 1, 2.64698e-23, 0, -2.64698e-23, 1, 2.08165e-12, 0, 2.08165e-12)
-visible = false
 mesh = SubResource("ArrayMesh_r8ynh")
 skeleton = NodePath("")
 
