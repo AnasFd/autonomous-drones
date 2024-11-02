@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvwwdtd1s2scv"]
+[gd_scene load_steps=5 format=3 uid="uid://cvwwdtd1s2scv"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2vu3p"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_vulxn"]
+[ext_resource type="PackedScene" uid="uid://c33ac6ijvuuvm" path="res://scenes/drone.tscn" id="3_8r5jr"]
 [ext_resource type="PackedScene" uid="uid://d3uca6x2hwlhy" path="res://scenes/floor.tscn" id="3_pad2v"]
 
 [node name="Main" type="Node3D"]
@@ -19,6 +20,66 @@ visible = false
 
 [node name="Drones" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.4401)
+
+[node name="Drone" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone2" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone3" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone4" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone5" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone6" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone7" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone8" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone9" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone10" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone11" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone12" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone13" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone14" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone15" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone16" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone17" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone18" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone19" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
+
+[node name="Drone20" parent="Drones" instance=ExtResource("3_8r5jr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.4401)
 
 [node name="Floor" parent="." instance=ExtResource("3_pad2v")]
 visible = false

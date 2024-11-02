@@ -11,8 +11,8 @@ size = Vector3(2.4711, 1.15045, 1)
 mass = 0.1
 gravity_scale = 0.0
 can_sleep = false
-linear_damp = 5.0
-angular_damp = 5.0
+linear_damp = 4.0
+angular_damp = 4.0
 script = ExtResource("1_6hl57")
 
 [node name="MODEL_DRONE1" parent="." instance=ExtResource("1_se17h")]
