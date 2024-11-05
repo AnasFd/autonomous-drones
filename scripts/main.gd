@@ -5,7 +5,7 @@ const DroneScene: Resource = preload("res://scenes/drone.tscn")
 @onready var drone_container = $Drones
 @export var area_size: float = 50.0
 @export var sphere_center: Vector3 = Vector3(0, 0, 0)
-@export var num_drones: int = 100
+@export var num_drones: int = 50
 @export var sphere_radius: float = 20.0
 
 enum State { MOVE, AVOID_OBSTACLES, IDLE }
@@ -34,7 +34,7 @@ func spawn_drones(count: int):
 		all_drones.append(new_drone)
 
 # Centralized state update logic for all drones
-func update_states(_delta):
+func update_states(delta):
 	for drone in all_drones:
 		drone.update_state(global_state)
-		drone.perform_behavior()
+		drone.perform_behavior(delta)

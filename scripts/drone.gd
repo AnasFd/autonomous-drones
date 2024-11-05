@@ -1,9 +1,9 @@
 extends RigidBody3D
 
-@export var base_min_distance: float = 10.0
+@export var base_min_distance: float = 15.0
 @export var speed: float = 1.0
 @export var attraction_strength: float = 1.0 * speed
-@export var repulsion_strength: float = 100.0
+@export var repulsion_strength: float = 1.0
 
 enum State { MOVE, AVOID_OBSTACLES, IDLE }
 var current_state: State = State.MOVE
@@ -22,7 +22,7 @@ func update_state(new_state: State) -> void:
 	current_state = new_state
 
 # Execute behavior based on the current state
-func perform_behavior():
+func perform_behavior(delta):
 	match current_state:
 		State.MOVE:
 			move_to_center()
@@ -34,9 +34,10 @@ func perform_behavior():
 # MOVE State: Move towards the sphere center until aligning with radius
 func move_to_center():
 	var movement = calculate_attraction_force()
-	apply_central_force(movement)
-	
-	if calculate_avoidance_force() != Vector3.ZERO:
+	var avoidance = calculate_avoidance_force()
+	apply_central_force(movement + avoidance)
+
+	if avoidance != Vector3.ZERO:
 		update_state(State.AVOID_OBSTACLES)
 	elif movement == Vector3.ZERO:
 		update_state(State.IDLE)
@@ -46,14 +47,16 @@ func avoid_obstacles():
 	var avoidance_force = calculate_avoidance_force()
 	apply_central_force(avoidance_force)
 	
+	# Switch to MOVE if no repulsion is necessary
 	if avoidance_force == Vector3.ZERO:
 		update_state(State.MOVE)
 
 # IDLE State: Maintain position on the sphere boundary, avoiding nearby obstacles
 func idle():
-	#if calculate_attraction_force() != Vector3.ZERO:
-		#update_state(State.MOVE)
-	if calculate_avoidance_force() != Vector3.ZERO:
+	# Check if the drone has drifted out of the buffer zone and needs to realign
+	if calculate_attraction_force() != Vector3.ZERO:
+		update_state(State.MOVE)
+	elif calculate_avoidance_force() != Vector3.ZERO:
 		update_state(State.AVOID_OBSTACLES)
 
 # Helper Functions
@@ -62,13 +65,15 @@ func idle():
 func calculate_attraction_force() -> Vector3:
 	var direction_to_center = (sphere_center - global_transform.origin)
 	var distance_to_center = direction_to_center.length()
+	var tolerance = 0.5  # Buffer zone around sphere_radius
 
-	if distance_to_center > sphere_radius:
+	# Only apply attraction force if the drone is meaningfully outside the target boundary
+	if distance_to_center > sphere_radius + tolerance:
 		return direction_to_center.normalized() * attraction_strength
-	elif distance_to_center < sphere_radius:
+	elif distance_to_center < sphere_radius - tolerance:
 		return -direction_to_center.normalized() * attraction_strength
 	else:
-		return Vector3.ZERO
+		return Vector3.ZERO  # Inside the tolerance zone, no force
 
 func calculate_avoidance_force() -> Vector3:
 	var avoidance_force = Vector3.ZERO
@@ -79,13 +84,11 @@ func calculate_avoidance_force() -> Vector3:
 			var distance_to_drone = global_transform.origin.distance_to(drone.global_transform.origin)
 
 			if distance_to_drone < min_distance:
-				# Calculate the repulsion direction away from the other drone
+				# Calculate a strong repulsion force directly away from nearby drone
 				var repulsion_direction = (global_transform.origin - drone.global_transform.origin).normalized()
 
-				# Make the repulsion stronger the closer the drones get
-				var repulsion_magnitude = repulsion_strength * ((min_distance - distance_to_drone) / min_distance)
-
-				# Add the calculated force in the repulsion direction
+				# Calculate a strong repulsion magnitude that increases as drones get closer
+				var repulsion_magnitude = repulsion_strength * (min_distance - distance_to_drone) / min_distance
 				avoidance_force += repulsion_direction * repulsion_magnitude
 
 	return avoidance_force
