@@ -3,9 +3,9 @@ extends Node3D
 const DroneScene: Resource = preload("res://scenes/drone.tscn")
 
 @onready var drone_container = $Drones
-@export var area_size: float = 50.0
+@export var area_size: float = 100.0
 @export var sphere_center: Vector3 = Vector3(0, 0, 0)
-@export var num_drones: int = 50
+@export var num_drones: int = 48
 @export var sphere_radius: float = 20.0
 
 enum State { MOVE, AVOID_OBSTACLES, IDLE }
