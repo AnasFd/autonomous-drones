@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @export var base_min_distance: float = 10.0
-@export var speed: float = 1.0
+@export var speed: float = 5.0
 #@export var attraction_strength: float = 1.0 * speed
 #@export var repulsion_strength: float = 2.0
 
@@ -11,11 +11,18 @@ var all_drones: Array
 var sphere_center: Vector3
 var sphere_radius: float
 
-# Function to initialize shared parameters from Main.gd
+# Function to initialize shared parameters from main.gd
 func initialize(center: Vector3, radius: float, drones: Array) -> void:
+	# Each drone should know these values
 	sphere_center = center
 	sphere_radius = radius
 	all_drones = drones
+	
+	# Collision properties
+	self.contact_monitor = true
+	self.max_contacts_reported = all_drones.size()
+	
+	# Physics properties
 	self.gravity_scale = 0
 	self.mass = 0.1
 	self.linear_damp = 4
@@ -37,7 +44,7 @@ func perform_behavior(_delta):
 func move_to_center():
 	var movement = calculate_attraction_force()
 	var avoidance = calculate_avoidance_force()
-	apply_central_force(movement + avoidance)
+	apply_central_force((movement + avoidance) * speed)
 
 	if avoidance != Vector3.ZERO:
 		update_state(State.AVOID_OBSTACLES)
@@ -87,5 +94,8 @@ func calculate_avoidance_force() -> Vector3:
 	return avoidance_force
 
 
-func _on_body_entered(_body: Node) -> void:
-	pass # Replace with function body.
+func _on_body_entered(body: Node) -> void:
+	print("collision happened")
+	all_drones.erase(body)
+	queue_free()
+	# pass # Replace with function body.
