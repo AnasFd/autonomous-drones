@@ -1,22 +1,23 @@
 extends RigidBody3D
 
-@export var base_min_distance: float = 10.0
-@export var speed: float = 5.0
-#@export var attraction_strength: float = 1.0 * speed
-#@export var repulsion_strength: float = 2.0
+@export var speed: float = 3.0
+@export var attraction_strength: float = 1.0 * speed
+@export var repulsion_strength: float = 1.0
 
 enum State { MOVE, AVOID_OBSTACLES }
 var current_state: State = State.MOVE
 var all_drones: Array
 var sphere_center: Vector3
 var sphere_radius: float
+var base_min_distance: float
 
 # Function to initialize shared parameters from main.gd
-func initialize(center: Vector3, radius: float, drones: Array) -> void:
+func initialize(center: Vector3, radius: float, drones: Array, bmd: float) -> void:
 	# Each drone should know these values
 	sphere_center = center
 	sphere_radius = radius
 	all_drones = drones
+	base_min_distance = bmd
 	
 	# Collision properties
 	self.contact_monitor = true
@@ -33,7 +34,7 @@ func update_state(new_state: State) -> void:
 	current_state = new_state
 
 # Execute behavior based on the current state
-func perform_behavior(_delta):
+func perform_behavior(_delta) -> void:
 	match current_state:
 		State.MOVE:
 			move_to_center()
@@ -41,7 +42,7 @@ func perform_behavior(_delta):
 			avoid_obstacles()
 
 # MOVE State: Move towards the sphere center until aligning with radius
-func move_to_center():
+func move_to_center() -> void:
 	var movement = calculate_attraction_force()
 	var avoidance = calculate_avoidance_force()
 	apply_central_force((movement + avoidance) * speed)
@@ -50,7 +51,8 @@ func move_to_center():
 		update_state(State.AVOID_OBSTACLES)
 
 # AVOID_OBSTACLES State: Adjust position to avoid collision with other drones
-func avoid_obstacles():
+func avoid_obstacles() -> void:
+	print("avoid obstacles")
 	var avoidance_force = calculate_avoidance_force()
 	apply_central_force(avoidance_force)
 	
@@ -87,8 +89,7 @@ func calculate_avoidance_force() -> Vector3:
 				var repulsion_direction = (global_transform.origin - drone.global_transform.origin).normalized()
 
 				# Calculate a strong repulsion magnitude that increases as drones get closer
-				# var repulsion_magnitude = repulsion_strength * (min_distance - distance_to_drone) / min_distance
-				var repulsion_magnitude = (min_distance - distance_to_drone) / min_distance
+				var repulsion_magnitude = repulsion_strength * (min_distance - distance_to_drone) / min_distance
 				avoidance_force += repulsion_direction * repulsion_magnitude
 
 	return avoidance_force
@@ -98,4 +99,3 @@ func _on_body_entered(body: Node) -> void:
 	print("collision happened")
 	all_drones.erase(body)
 	queue_free()
-	# pass # Replace with function body.

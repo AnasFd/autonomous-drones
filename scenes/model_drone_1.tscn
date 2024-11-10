@@ -11,8 +11,8 @@ cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.721569, 0.164706, 0.0941176, 1)
 emission_enabled = true
-emission = Color(0, 0.756863, 0, 1)
-emission_energy_multiplier = 4.54
+emission = Color(7.12335e-06, 0.962004, 0.797125, 1)
+emission_energy_multiplier = 16.0
 backlight = Color(0.901662, 0.00014805, 0.753818, 1)
 backlight_texture = SubResource("CanvasTexture_73kba")
 

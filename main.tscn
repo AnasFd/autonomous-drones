@@ -1,24 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvwwdtd1s2scv"]
+[gd_scene load_steps=6 format=3 uid="uid://cvwwdtd1s2scv"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2vu3p"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_vulxn"]
-[ext_resource type="PackedScene" uid="uid://d3uca6x2hwlhy" path="res://scenes/floor.tscn" id="3_pad2v"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0jyi4"]
+
+[sub_resource type="Sky" id="Sky_ytwrv"]
+sky_material = SubResource("PanoramaSkyMaterial_0jyi4")
+
+[sub_resource type="Environment" id="Environment_ydgqg"]
+background_mode = 2
+sky = SubResource("Sky_ytwrv")
+ambient_light_source = 2
+ambient_light_color = Color(0.932802, 0.83954, 0.909678, 1)
+ambient_light_energy = 7.93
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422262, 0)
 script = ExtResource("1_2vu3p")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ydgqg")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.997053, 0.0277255, 0.0715275, -0.0245938, 0.998716, -0.0442976, -0.0726638, 0.042408, 0.996454, -2.4433, 7.45848, 24.0994)
 fov = 87.2099
 script = ExtResource("2_vulxn")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.0187612, 0.999824, 0, -0.999824, -0.0187612, 0, 10.1622, 0)
-visible = false
-
 [node name="Drones" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.4401)
-
-[node name="Floor" parent="." instance=ExtResource("3_pad2v")]
-visible = false
