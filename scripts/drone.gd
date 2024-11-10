@@ -1,58 +1,101 @@
-extends Node3D
+extends RigidBody3D
 
-@export var circle_center: Vector3  # Center of the circle
-@export var circle_radius: float = 20.0  # Desired radius of the circle
-@export var base_min_distance: float = 15
-@export var speed: float = 1.0  # Movement speed
-@export var repulsion_strength: float = 15.0  # Strength of repulsion between drones
+@export var base_min_distance: float = 10.0
+@export var speed: float = 5.0
+#@export var attraction_strength: float = 1.0 * speed
+#@export var repulsion_strength: float = 2.0
 
-func _ready():
-	pass # Nothing to do in _ready since the initial placement is now done in main.gd
+enum State { MOVE, AVOID_OBSTACLES }
+var current_state: State = State.MOVE
+var all_drones: Array
+var sphere_center: Vector3
+var sphere_radius: float
 
-func _process(delta):
-	# Move the drone towards the target circle and avoid other drones
-	var steering = calculate_steering()
-	move(steering * delta)
-
-# Calculate the steering force to move towards the center and avoid other drones
-func calculate_steering() -> Vector3:
-	var desired_direction = (circle_center - global_transform.origin).normalized()
-	var desired_velocity = desired_direction * speed
+# Function to initialize shared parameters from main.gd
+func initialize(center: Vector3, radius: float, drones: Array) -> void:
+	# Each drone should know these values
+	sphere_center = center
+	sphere_radius = radius
+	all_drones = drones
 	
-	# Calculate repulsion from nearby drones to avoid collisions
+	# Collision properties
+	self.contact_monitor = true
+	self.max_contacts_reported = all_drones.size()
+	
+	# Physics properties
+	self.gravity_scale = 0
+	self.mass = 0.1
+	self.linear_damp = 4
+	self.angular_damp = 4
+
+# Centralized state update function
+func update_state(new_state: State) -> void:
+	current_state = new_state
+
+# Execute behavior based on the current state
+func perform_behavior(_delta):
+	match current_state:
+		State.MOVE:
+			move_to_center()
+		State.AVOID_OBSTACLES:
+			avoid_obstacles()
+
+# MOVE State: Move towards the sphere center until aligning with radius
+func move_to_center():
+	var movement = calculate_attraction_force()
+	var avoidance = calculate_avoidance_force()
+	apply_central_force((movement + avoidance) * speed)
+
+	if avoidance != Vector3.ZERO:
+		update_state(State.AVOID_OBSTACLES)
+
+# AVOID_OBSTACLES State: Adjust position to avoid collision with other drones
+func avoid_obstacles():
 	var avoidance_force = calculate_avoidance_force()
-
-	# Combine the desired movement towards the center and the repulsion force
-	var steering = desired_velocity + avoidance_force
+	apply_central_force(avoidance_force)
 	
-	return steering.normalized()
+	# Switch to MOVE if no repulsion is necessary
+	if avoidance_force == Vector3.ZERO:
+		update_state(State.MOVE)
 
-# Calculate the repulsion force to avoid collisions with other drones
+# Helper Functions
+
+# Calculate attraction towards or away from the sphere center
+func calculate_attraction_force() -> Vector3:
+	var direction_to_center = (sphere_center - global_transform.origin)
+	var distance_to_center = direction_to_center.length()
+	var tolerance = 0.1  # Buffer zone around sphere_radius
+
+	# Only apply attraction force if the drone is meaningfully outside the target boundary
+	if distance_to_center > sphere_radius + tolerance:
+		return direction_to_center.normalized()
+	elif distance_to_center < sphere_radius - tolerance:
+		return -direction_to_center.normalized()
+	else:
+		return Vector3.ZERO  # Inside the tolerance zone, no force
+
 func calculate_avoidance_force() -> Vector3:
 	var avoidance_force = Vector3.ZERO
-	var drones = get_parent().get_children()  # Get all drones
-	
-	for drone in drones:
-		if drone != self:  # Avoid self-comparison
-			var distance_to_drone = global_transform.origin.distance_to(drone.global_transform.origin)
-			var min_distance = base_min_distance + (circle_radius / drones.size())
+	var min_distance = base_min_distance + (sphere_radius / all_drones.size())
 
-			# If the drone is too close, calculate a repulsion force
+	for drone in all_drones:
+		if drone != self:
+			var distance_to_drone = global_transform.origin.distance_to(drone.global_transform.origin)
+
 			if distance_to_drone < min_distance:
+				# Calculate a strong repulsion force directly away from nearby drone
 				var repulsion_direction = (global_transform.origin - drone.global_transform.origin).normalized()
-				var repulsion_strength_scaled = (min_distance - distance_to_drone) / min_distance
-				avoidance_force += repulsion_direction * repulsion_strength_scaled * repulsion_strength
+
+				# Calculate a strong repulsion magnitude that increases as drones get closer
+				# var repulsion_magnitude = repulsion_strength * (min_distance - distance_to_drone) / min_distance
+				var repulsion_magnitude = (min_distance - distance_to_drone) / min_distance
+				avoidance_force += repulsion_direction * repulsion_magnitude
 
 	return avoidance_force
 
-# Apply movement to the drone
-func move(steering: Vector3):
-	var new_position = global_transform.origin + steering
-	# Ensure the drone stays near the dynamically shrinking radius by adjusting distance from the center
-	var to_center = (new_position - circle_center).normalized() * circle_radius
-	new_position = circle_center + to_center
 
-	global_transform.origin = new_position  # Apply the new position
-	
-	# Make the drone face the center of the circle
-	look_at(circle_center, Vector3.UP)
+func _on_body_entered(body: Node) -> void:
+	print("collision happened")
+	all_drones.erase(body)
+	queue_free()
+	# pass # Replace with function body.

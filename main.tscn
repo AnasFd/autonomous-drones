@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_2vu3p"]
 [ext_resource type="Script" path="res://scripts/camera_3d.gd" id="2_vulxn"]
-[ext_resource type="PackedScene" path="res://scenes/floor.tscn" id="3_pad2v"]
+[ext_resource type="PackedScene" uid="uid://d3uca6x2hwlhy" path="res://scenes/floor.tscn" id="3_pad2v"]
 
 [node name="Main" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.422262, 0)
@@ -15,6 +15,7 @@ script = ExtResource("2_vulxn")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.0187612, 0.999824, 0, -0.999824, -0.0187612, 0, 10.1622, 0)
+visible = false
 
 [node name="Drones" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.4401)
