@@ -3,10 +3,11 @@ extends Node3D
 const DroneScene: Resource = preload("res://scenes/drone.tscn")
 
 @onready var drone_container = $Drones
-@export var area_size: float = 100.0
+@onready var camera = $Camera3D
+@export var area_size: float = 150.0
 @export var sphere_center: Vector3 = Vector3(0, 0, 0)
 @export var sphere_radius: float = 40.0 # 40/15 (performance) 40/10 awesome view
-@export var base_min_distance: float = 15
+@export var base_min_distance: float = 10.0
 
 enum State { MOVE, AVOID_OBSTACLES }
 var global_state: State = State.MOVE
@@ -14,6 +15,7 @@ var all_drones = []
 var num_drones: int
 
 func _ready():
+	camera.position = Vector3(3.28, -12.01, 73.22)
 	num_drones = drones_per_radius(sphere_radius, base_min_distance)
 	print(num_drones)
 	spawn_drones(num_drones)
@@ -29,17 +31,22 @@ func spawn_drones(count: int) -> void:
 		drone_container.add_child(new_drone)
 		
 		var random_position = Vector3(
-			randf_range(-area_size, area_size),
-			randf_range(-area_size, area_size),
-			randf_range(-area_size, area_size)
+			randf_range(-area_size, area_size), # different x
+			randf_range(-area_size, area_size), # meme y
+			randf_range(-area_size, area_size) # meme z
 		)
+		# 2ème config (au sol)
+		#var random_position = Vector3(
+			#(i + i * 10),
+			#-100,
+			#(i + i * 2)
+		#)
 		new_drone.global_transform.origin = random_position
 		all_drones.append(new_drone)
 
 # Centralized state update logic for all drones
 func update_states(delta) -> void:
 	for drone in all_drones:
-		drone.update_state(global_state)
 		drone.perform_behavior(delta)
 
 func drones_per_radius(radius: float, bmd: float) -> int:
