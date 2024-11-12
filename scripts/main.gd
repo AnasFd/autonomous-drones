@@ -8,19 +8,22 @@ const DroneScene: Resource = preload("res://scenes/drone.tscn")
 @export var sphere_center: Vector3 = Vector3(0, 0, 0)
 @export var sphere_radius: float = 40.0 # 40/15 (performance) 40/10 awesome view
 @export var base_min_distance: float = 10.0
+@export var sphere_volume: float = 4/(3 * PI * pow(sphere_radius, 3))
 
-enum State { MOVE, AVOID_OBSTACLES }
+enum State { MOVE }
 var global_state: State = State.MOVE
 var all_drones = []
 var num_drones: int
 
 func _ready():
-	camera.position = Vector3(3.28, -12.01, 73.22)
+	#camera.position = Vector3(3.28, -12.01, 73.22)
+	camera.position = Vector3(0, 0, 73.22)
+	camera.look_at(sphere_center)
 	num_drones = drones_per_radius(sphere_radius, base_min_distance)
-	print(num_drones)
+	print("Nombre de drones: " + str(num_drones))
 	spawn_drones(num_drones)
 	for drone in all_drones:
-		drone.initialize(sphere_center, sphere_radius, all_drones, base_min_distance)
+		drone.initialize(sphere_center, sphere_radius, all_drones, base_min_distance, sphere_volume)
 
 func _process(delta):
 	update_states(delta)

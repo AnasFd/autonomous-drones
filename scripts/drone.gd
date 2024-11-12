@@ -1,8 +1,6 @@
 extends RigidBody3D
 
 @export var speed: float = 1.0
-@export var attraction_strength: float = 1.0 * speed
-@export var repulsion_strength: float = 1.0
 
 enum State { MOVE }
 var current_state: State = State.MOVE
@@ -10,14 +8,16 @@ var all_drones: Array
 var sphere_center: Vector3
 var sphere_radius: float
 var base_min_distance: float
+var sphere_volume: float
 
 # Function to initialize shared parameters from main.gd
-func initialize(center: Vector3, radius: float, drones: Array, bmd: float) -> void:
+func initialize(center: Vector3, radius: float, drones: Array, bmd: float, sv: float) -> void:
 	# Each drone should know these values
 	self.sphere_center = center
 	self.sphere_radius = radius
 	self.all_drones = drones
 	self.base_min_distance = bmd
+	self.sphere_volume = sv
 	
 	# Collision properties
 	self.contact_monitor = true
@@ -62,7 +62,7 @@ func calculate_attraction_force() -> Vector3:
 
 func calculate_avoidance_force() -> Vector3:
 	var avoidance_force = Vector3.ZERO
-	var min_distance = base_min_distance + (sphere_radius / all_drones.size())
+	var min_distance = base_min_distance + (sphere_volume / all_drones.size())
 
 	for drone in all_drones:
 		if drone != self:
@@ -73,7 +73,7 @@ func calculate_avoidance_force() -> Vector3:
 				var repulsion_direction = (global_transform.origin - drone.global_transform.origin).normalized()
 
 				# Calculate a strong repulsion magnitude that increases as drones get closer
-				var repulsion_magnitude = repulsion_strength * (min_distance - distance_to_drone) / min_distance
+				var repulsion_magnitude = (min_distance - distance_to_drone) / min_distance
 				avoidance_force += repulsion_direction * repulsion_magnitude
 
 	return avoidance_force
