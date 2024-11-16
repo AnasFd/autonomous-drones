@@ -3,5 +3,8 @@ This system aims to simulate the behavior of a multi-agent system.
 
 
 
-https://github.com/user-attachments/assets/5d10a694-57ac-4919-af4e-052fc8c9a09a
+
+https://github.com/user-attachments/assets/7b324f8a-f2ee-4e3d-afcf-85cd16184ab8
+
+
 
